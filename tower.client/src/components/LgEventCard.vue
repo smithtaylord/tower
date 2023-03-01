@@ -14,8 +14,8 @@
                                 </div>
                                 <div class="dropdown-menu text-center fs-5">
                                     <div class="list-group">
-                                        <span @click="" class="selectable"> edit event<i class="mdi mdi-lead-pencil my-2"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal"></i></span>
+                                        <span data-bs-toggle="modal" data-bs-target="#editEventForm" class="selectable">
+                                            edit event<i class="mdi mdi-lead-pencil my-2"></i></span>
                                     </div>
                                     <div class="list-group">
                                         <span @click="cancelEvent(event)" class="selectable"> cancel event<i
@@ -44,7 +44,8 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <h3>{{ event.capacity }} spots left</h3>
-                    <button class="btn bg-warning selectable">Attend <i class="mdi mdi-human"></i></button>
+                    <button @click="createTicket(event.id)" class="btn bg-warning selectable">Attend
+                        <i class="mdi mdi-human"></i></button>
                 </div>
                 <div v-if="event.isCanceled == true">
                     <h1 class="text-danger">EVENT IS CANCELED</h1>
@@ -59,6 +60,7 @@
 import { computed } from 'vue';
 import { AppState } from '../AppState.js';
 import { eventsService } from '../services/EventsService.js';
+import { ticketsService } from '../services/TicketsService.js'
 import Pop from '../utils/Pop.js';
 
 export default {
@@ -67,6 +69,10 @@ export default {
             event: computed(() => AppState.event),
             account: computed(() => AppState.account),
 
+            // THIS ROUTE DID NOT WORK
+            // myTicket: computed(() => AppState.myTickets),
+            // foundTicket: computed(() => AppState.myTickets.find(t => t.accountId == AppState.account.id)),
+
             async cancelEvent(event) {
                 try {
                     if (await Pop.confirm('Are you sure you want to cancel this event?')) {
@@ -74,6 +80,13 @@ export default {
                     }
                 } catch (error) {
                     Pop.error(error, '[cancelEvent]')
+                }
+            },
+            async createTicket(eventId) {
+                try {
+                    await ticketsService.createTicket(eventId)
+                } catch (error) {
+                    Pop.error(error, '[create ticket]')
                 }
             }
         }

@@ -55,7 +55,8 @@ export default {
             }
         });
         return {
-            event: computed(() => AppState.event)
+            event: computed(() => AppState.event),
+            foundTicket: computed(() => AppState.myTickets.find(t => t.accountId == AppState.account.id))
         };
     },
     components: { LgEventCard }

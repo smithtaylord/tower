@@ -11,12 +11,16 @@
   <Modal id="createEventForm">
     <CreateEventForm />
   </Modal>
+  <Modal id="editEventForm">
+    <EditEventForm />
+  </Modal>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
 import CreateEventForm from './components/CreateEventForm.vue'
+import EditEventForm from './components/EditEventForm.vue'
 import Modal from './components/Modal.vue'
 import Navbar from './components/Navbar.vue'
 
@@ -26,7 +30,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar, Modal, CreateEventForm }
+  components: { Navbar, Modal, CreateEventForm, EditEventForm }
 }
 </script>
 <style lang="scss">

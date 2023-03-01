@@ -47,11 +47,13 @@ export default {
         Pop.error(error, "[error getting events]");
       }
     }
+
     onMounted(() => {
       getEvents();
     });
     return {
-      events: computed(() => AppState.events)
+      events: computed(() => AppState.events),
+      myTickets: computed(() => AppState.myTickets)
     };
   },
   components: { SmEventCard }
