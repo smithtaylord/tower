@@ -1,8 +1,18 @@
 import { dbContext } from "../db/DbContext.js"
-import { Forbidden } from "../utils/Errors.js"
+import { BadRequest, Forbidden } from "../utils/Errors.js"
 import { eventsService } from "./EventsService.js"
 
 class TicketsService {
+    async getEventTickets(eventId) {
+        const tickets = await dbContext.Tickets.find({ eventId })
+            .populate('profile', 'name picture')
+        return tickets
+    }
+    async getMyTickets(accountId) {
+        const tickets = await dbContext.Tickets.find({ accountId })
+            .populate('event')
+        return tickets
+    }
     async createTicket(ticketData) {
         const event = await eventsService.getEventById(ticketData.eventId)
         if (event.isCanceled) {
@@ -18,6 +28,27 @@ class TicketsService {
         return ticket
     }
 
+    async deleteTicket(ticketId, requestorId) {
+        const ticket = await dbContext.Tickets.findById(ticketId)
+        if (!ticket) {
+            throw new BadRequest('Invald Id')
+        }
+        if (ticket.accountId.toString() !== requestorId) {
+            throw new Forbidden('You are not allowed to delete this ticket')
+        }
+        await ticket.remove()
+        // TODO Is this right?
+        const event = await dbContext.Events.findById(ticket.eventId)
+        // @ts-ignore
+        event.capacity = event.capacity + 1
+        // @ts-ignore
+        await event.save()
+
+
+        // event.capacity = event.capacity + 1
+        // await event.save()
+        return ticket
+    }
 }
 
 export const ticketsService = new TicketsService()
