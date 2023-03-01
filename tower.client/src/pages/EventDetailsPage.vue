@@ -35,6 +35,7 @@ import { eventsService } from '../services/EventsService.js';
 import Pop from '../utils/Pop.js';
 import { AppState } from '../AppState.js';
 import LgEventCard from '../components/LgEventCard.vue';
+import { ticketsService } from '../services/TicketsService.js';
 
 export default {
     setup() {
@@ -49,9 +50,20 @@ export default {
                 Pop.error(error, "[getting event by id]");
             }
         }
+
+        async function getAttendees() {
+            try {
+                const eventId = route.params.eventId
+                await ticketsService.getAttendees(eventId)
+            } catch (error) {
+                Pop.error(error, '[message]')
+            }
+
+        }
         watchEffect(() => {
             if (route.params.eventId) {
                 getEventById();
+                getAttendees()
             }
         });
         return {

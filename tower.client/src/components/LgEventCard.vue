@@ -44,7 +44,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <h3>{{ event.capacity }} spots left</h3>
-                    <button @click="createTicket(event.id)" class="btn bg-warning selectable">Attend
+                    <button v-if="!foundTicket" @click="createTicket(event.id)" class="btn bg-warning selectable">Attend
                         <i class="mdi mdi-human"></i></button>
                 </div>
                 <div v-if="event.isCanceled == true">
@@ -68,10 +68,11 @@ export default {
         return {
             event: computed(() => AppState.event),
             account: computed(() => AppState.account),
+            attendee: computed(() => AppState.attendees),
 
             // THIS ROUTE DID NOT WORK
             // myTicket: computed(() => AppState.myTickets),
-            // foundTicket: computed(() => AppState.myTickets.find(t => t.accountId == AppState.account.id)),
+            foundTicket: computed(() => AppState.attendees.find(a => a.profile.id == AppState.account.id)),
 
             async cancelEvent(event) {
                 try {
