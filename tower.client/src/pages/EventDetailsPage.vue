@@ -1,6 +1,6 @@
 <template>
     <div class="component">
-
+        YO THIS IS THE EVENTS DETAILS PAGE
 
     </div>
 </template>

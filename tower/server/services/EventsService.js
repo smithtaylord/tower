@@ -8,7 +8,6 @@ class EventsService {
         if (event.isCanceled) {
             throw new BadRequest('This event has already been canceled')
         }
-        // TODO FORBIDDEN REQUEST GOES HERE, has to authenticate user information.
         if (event.creatorId.toString() != requestorId) {
             throw new Forbidden('You are not allowed to perform this action, this is not your event to cancel')
         }
