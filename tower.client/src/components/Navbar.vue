@@ -12,8 +12,8 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventForm">
-            Launch demo modal
+          <button type="button" class="btn bg-success" data-bs-toggle="modal" data-bs-target="#createEventForm">
+            new event
           </button>
         </li>
       </ul>

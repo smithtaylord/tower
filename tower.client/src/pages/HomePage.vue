@@ -14,8 +14,9 @@
           <button class="btn bg-success">All</button>
           <button class="btn bg-success">Concert</button>
           <button class="btn bg-success">Convention</button>
-          <button class="btn bg-success">Sports</button>
+          <button class="btn bg-success">Sport</button>
           <button class="btn bg-success">Digital</button>
+          <button class="btn bg-success">Misc.</button>
         </div>
       </div>
     </div>
