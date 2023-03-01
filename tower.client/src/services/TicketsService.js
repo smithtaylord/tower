@@ -23,6 +23,16 @@ class TicketsService {
         const res = await api.get(`api/events/${eventId}/tickets`)
         logger.log(res.data, '[getting attendees]')
         AppState.attendees = res.data.map(a => new Attendee(a))
+    }
+
+    async deleteTicket(ticketId) {
+        const res = await api.delete('api/tickets/' + ticketId)
+        logger.log(res.data, '[delete ticket]')
+        let attendeeIndex = AppState.attendees.findIndex(a => a.id == ticketId)
+        AppState.attendees.splice(attendeeIndex, 1)
+        let ticketIndex = AppState.myTickets.findIndex(t => t.id == ticketId)
+        AppState.myTickets.splice(ticketIndex, 1)
+        AppState.event.capacity++
 
     }
 }

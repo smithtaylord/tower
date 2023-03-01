@@ -43,9 +43,19 @@
                     </p>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <h3>{{ event.capacity }} spots left</h3>
-                    <button v-if="!foundTicket" @click="createTicket(event.id)" class="btn bg-warning selectable">Attend
-                        <i class="mdi mdi-human"></i></button>
+                    <h3 v-if="event.capacity > 0"> <span class="text-info"> {{ event.capacity }} </span> spots left</h3>
+                    <h3 v-else> <span class="text-danger">0</span> spots left</h3>
+                    <div>
+                        <button v-if="event.capacity <= 0" class="btn bg-danger" :disabled="event.capacity <= 0">Event Sold
+                            Out
+                            <i class="mdi mdi-human"></i></button>
+                        <button v-else-if="!foundTicket" @click="createTicket(event.id)"
+                            class="btn bg-warning selectable">Attend
+                            <i class="mdi mdi-human"></i></button>
+                        <button v-else-if="foundTicket" @click="deleteTicket(foundTicket.id)"
+                            class="btn bg-info selectable">Return
+                            Ticket <i class="mdi mdi-human"></i> </button>
+                    </div>
                 </div>
                 <div v-if="event.isCanceled == true">
                     <h1 class="text-danger">EVENT IS CANCELED</h1>
@@ -69,9 +79,6 @@ export default {
             event: computed(() => AppState.event),
             account: computed(() => AppState.account),
             attendee: computed(() => AppState.attendees),
-
-            // THIS ROUTE DID NOT WORK
-            // myTicket: computed(() => AppState.myTickets),
             foundTicket: computed(() => AppState.attendees.find(a => a.profile.id == AppState.account.id)),
 
             async cancelEvent(event) {
@@ -88,6 +95,13 @@ export default {
                     await ticketsService.createTicket(eventId)
                 } catch (error) {
                     Pop.error(error, '[create ticket]')
+                }
+            },
+            async deleteTicket(ticketId) {
+                try {
+                    await ticketsService.deleteTicket(ticketId)
+                } catch (error) {
+                    Pop.error(error, '[delete ticket]')
                 }
             }
         }
