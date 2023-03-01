@@ -17,6 +17,8 @@ class TicketsService {
         const event = await eventsService.getEventById(ticketData.eventId)
         if (event.isCanceled) {
             throw new Forbidden('This Event is cancelled')
+        } if (event.capacity <= 0) {
+            throw new BadRequest('This event is sold out')
         }
 
         // TODO IS THIS CORRECT???? IT PASSED THE TEST!

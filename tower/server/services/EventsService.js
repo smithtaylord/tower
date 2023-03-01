@@ -28,7 +28,7 @@ class EventsService {
         await event.populate('creator', 'name picture')
         return event
     }
-    // TODO I need to ask about this as to why it is not passing?
+    // TODO I need to ask about this as to why it is not passing both tests?
     async cancelEvent(eventId, requestorId) {
         const event = await this.getEventById(eventId)
         if (event.isCanceled) {
