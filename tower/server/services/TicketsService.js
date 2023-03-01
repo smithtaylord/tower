@@ -21,7 +21,6 @@ class TicketsService {
             throw new BadRequest('This event is sold out')
         }
 
-        // TODO IS THIS CORRECT???? IT PASSED THE TEST!
         event.capacity = event.capacity - 1
         await event.save()
         const ticket = await dbContext.Tickets.create(ticketData)
@@ -39,7 +38,7 @@ class TicketsService {
             throw new Forbidden('You are not allowed to delete this ticket')
         }
         await ticket.remove()
-        // TODO Is this right?
+
         const event = await dbContext.Events.findById(ticket.eventId)
         // @ts-ignore
         event.capacity = event.capacity + 1

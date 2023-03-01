@@ -67,8 +67,9 @@ export class EventsController extends BaseController {
     async editEvent(req, res, next) {
         try {
             const eventData = req.body
+            const requestorId = req.userInfo.id
             const eventId = req.params.eventId
-            const event = await eventsService.editEvent(eventData, eventId)
+            const event = await eventsService.editEvent(eventData, eventId, requestorId)
             return res.send(event)
         } catch (error) {
             next(error)

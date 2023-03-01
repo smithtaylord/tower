@@ -3,8 +3,15 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class EventsService {
 
-    async editEvent(eventData, eventId) {
+    async editEvent(eventData, eventId, requestorId) {
         const event = await this.getEventById(eventId)
+        if (event.isCanceled) {
+            throw new BadRequest('This event has already been canceled')
+        }
+        // TODO FORBIDDEN REQUEST GOES HERE, has to authenticate user information.
+        if (event.creatorId.toString() != requestorId) {
+            throw new Forbidden('You are not allowed to perform this action, this is not your event to cancel')
+        }
         event.name = eventData.name || event.name
         event.description = eventData.description || event.description
         await event.save()
