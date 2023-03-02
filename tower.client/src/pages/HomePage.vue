@@ -2,8 +2,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="m-3 p-3 bg-dark fancy-text fs-3">
-          <p>Get ahead of the scalpers. <br> Reserve your seat now with <br> real events for real people. </p>
+        <div class="m-3 p-3 bg-dark fancy-text fs-3 background-image blue-border"
+          style="background-image: url(unsplash_kcJsQ3PJrYU.jpg); background-size: cover;">
+          <p class="p-4">Get ahead of the scalpers. <br> Reserve your seat now with <br> real events for real people.
+          </p>
         </div>
       </div>
     </div>
@@ -109,6 +111,10 @@ export default {
 
   .fancy-text {
     font-family: 'Alegreya Sans', sans-serif
+  }
+
+  .blue-border {
+    border: 5px solid #56C7FB;
   }
 
 }

@@ -28,7 +28,7 @@
                         </div>
                         <div>
                             <i v-if="c.creator.id == account.id" @click="deleteComment(c)"
-                                class="mdi mdi-delete-forever text-danger text-end bg-dark rounded fs-5 selectable"
+                                class="mdi mdi-close-circle-outline text-danger text-end rounded fs-4 selectable"
                                 title="delete-comment"></i>
                         </div>
                     </div>
