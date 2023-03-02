@@ -7,13 +7,14 @@
                 </router-link>
             </div>
             <div class="col-6 d-flex justify-content-between flex-column">
-                <div class="p-3">
+                <div class="p-3 fancy-text">
                     <h4 class="text-light">{{ ticket.name }}</h4>
                     <h5 class="text-info">{{ ticket.location }}</h5>
                     <h5 class="text-info">{{ ticket.date }}</h5>
                 </div>
                 <div class="text-end p-5">
-                    <button @click="deleteTicket(ticket.id)" class="btn bg-danger text-dark selectable">not going</button>
+                    <button @click="deleteTicket(ticket.id)" class="btn bg-danger text-dark fw-bold selectable">not
+                        going</button>
                 </div>
             </div>
             <div class="col-2">
@@ -62,5 +63,9 @@ export default {
     width: 15vh;
     border-radius: 50%;
     transform: translateX(9vh);
+}
+
+.fancy-text {
+    font-family: 'Inter', sans-serif
 }
 </style>

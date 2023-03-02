@@ -4,6 +4,12 @@
 @import "./_utilities.scss";
 @import "./loaders.scss";
 
+
+// font-family: 'Alegreya Sans', sans-serif;
+// font-family: 'Inter', sans-serif;
+// font-family: 'Nunito', sans-serif;
+
+
 body {
   overscroll-behavior: none;
 }
@@ -13,6 +19,7 @@ body {
   flex-direction: row;
   min-height: 100vh;
   background-color: var(--body-bg);
+  font-family: 'Nunito', sans-serif;
 }
 
 main {

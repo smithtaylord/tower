@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="m-3 p-3 bg-dark">
+        <div class="m-3 p-3 bg-dark fancy-text fs-3">
           <p>Get ahead of the scalpers. <br> Reserve your seat now with <br> real events for real people. </p>
         </div>
       </div>
@@ -11,12 +11,12 @@
     <div class="row">
       <div class="col-12">
         <div class="m-3 p-3 bg-dark d-flex justify-content-around">
-          <button @click="changeFilterCategory('')" class="btn bg-success">All</button>
-          <button @click="changeFilterCategory('concert')" class="btn bg-success">Concert</button>
-          <button @click="changeFilterCategory('convention')" class="btn bg-success">Convention</button>
-          <button @click="changeFilterCategory('sport')" class="btn bg-success">Sport</button>
-          <button @click="changeFilterCategory('digital')" class="btn bg-success">Digital</button>
-          <button @click="changeFilterCategory('misc')" class="btn bg-success">Misc.</button>
+          <button @click="changeFilterCategory('')" class="btn bg-success fancy-text fs-3">All</button>
+          <button @click="changeFilterCategory('concert')" class="btn bg-success fancy-text fs-3">Concert</button>
+          <button @click="changeFilterCategory('convention')" class="btn bg-success fancy-text fs-3">Convention</button>
+          <button @click="changeFilterCategory('sport')" class="btn bg-success fancy-text fs-3">Sport</button>
+          <button @click="changeFilterCategory('digital')" class="btn bg-success fancy-text fs-3">Digital</button>
+          <button @click="changeFilterCategory('misc')" class="btn bg-success fancy-text fs-3">Misc.</button>
         </div>
       </div>
     </div>
@@ -105,6 +105,10 @@ export default {
 
   .event-body {
     height: 5vh;
+  }
+
+  .fancy-text {
+    font-family: 'Alegreya Sans', sans-serif
   }
 
 }
