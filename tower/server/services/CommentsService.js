@@ -26,6 +26,7 @@ class CommentsService {
         }
         const comment = await dbContext.Comments.create(commentData)
         await comment.populate('creator', 'name picture')
+
         return comment
     }
 

@@ -16,7 +16,7 @@ class EventsService {
         // If I fail a postman test delete this!
         event.location = eventData.location || event.location
         event.capacity = eventData.capacity || event.capacity
-        event.startDate = eventData.startDate || event.startDate
+        // event.startDate = eventData.startDate || event.startDate
         await event.save()
         return event
 

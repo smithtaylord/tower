@@ -19,8 +19,12 @@
                 <div class="bg-info comment-area rounded p-2">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <span><b>{{ c.creator.name }}</b> <b v-if="c.isAttending" class="text-primary">Attending this
-                                    event</b> </span>
+                            <span>
+                                <b>{{ c.creator.name }}</b>
+                                <b v-if="attendees.find(a => a.accountId == c.creator.id)" class="text-primary">
+                                    Attending this event
+                                </b>
+                            </span>
                         </div>
                         <div>
                             <i v-if="c.creator.id == account.id" @click="deleteComment(c)"
@@ -66,6 +70,7 @@ export default {
             editable,
             comments: computed(() => AppState.comments),
             account: computed(() => AppState.account),
+            attendees: computed(() => AppState.attendees),
             async createComment() {
                 try {
                     // TODO Is this the right way to do this? Or is there an easier way to attach the eventId?

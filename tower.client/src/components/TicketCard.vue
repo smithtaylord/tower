@@ -8,7 +8,7 @@
             </div>
             <div class="col-6 d-flex justify-content-between flex-column">
                 <div class="p-3 fancy-text">
-                    <h4 class="text-light">{{ ticket.name }}</h4>
+                    <h4 class="text-body-bg">{{ ticket.name }}</h4>
                     <h5 class="text-info">{{ ticket.location }}</h5>
                     <h5 class="text-info">{{ ticket.date }}</h5>
                 </div>
