@@ -12,13 +12,11 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <button type="button" class="btn bg-success" data-bs-toggle="modal" data-bs-target="#createEventForm">
-            new event
-          </button>
+
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
-      <Login />
+      <!-- <Login /> -->
     </div>
   </nav>
 </template>

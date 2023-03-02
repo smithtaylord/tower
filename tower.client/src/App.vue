@@ -1,10 +1,16 @@
 <template>
   <header>
-    <Navbar />
+
   </header>
   <main class="bg-dark">
-    <router-view />
+    <div>
+      <Navbar />
+      <router-view />
+    </div>
   </main>
+  <footer class="py-4 bg-secondary footer">
+    <Login />
+  </footer>
   <Modal id="createEventForm">
     <CreateEventForm />
   </Modal>
@@ -18,6 +24,7 @@ import { computed } from 'vue'
 import { AppState } from './AppState'
 import CreateEventForm from './components/CreateEventForm.vue'
 import EditEventForm from './components/EditEventForm.vue'
+import Login from './components/Login.vue'
 import Modal from './components/Modal.vue'
 import Navbar from './components/Navbar.vue'
 
@@ -27,7 +34,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar, Modal, CreateEventForm, EditEventForm }
+  components: { Navbar, Modal, CreateEventForm, EditEventForm, Login }
 }
 </script>
 <style lang="scss">
@@ -35,12 +42,5 @@ export default {
 
 :root {
   --main-height: calc(100vh - 32px - 64px);
-}
-
-
-footer {
-  display: grid;
-  place-content: center;
-  height: 32px;
 }
 </style>

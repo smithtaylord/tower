@@ -82,8 +82,10 @@ export default {
             },
             async deleteComment(comment) {
                 try {
-                    const commentId = comment.id
-                    await commentsService.deleteComment(commentId)
+                    if (await Pop.confirm('Are you sure you want to delete this comment?')) {
+                        const commentId = comment.id
+                        await commentsService.deleteComment(commentId)
+                    }
                 } catch (error) {
                     Pop.error(error, '[delete comment]')
                 }

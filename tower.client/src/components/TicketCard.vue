@@ -61,6 +61,6 @@ export default {
     height: 15vh;
     width: 15vh;
     border-radius: 50%;
-    transform: translateX(5vh);
+    transform: translateX(9vh);
 }
 </style>

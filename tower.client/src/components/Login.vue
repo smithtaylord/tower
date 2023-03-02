@@ -1,24 +1,47 @@
 <template>
-  <span class="navbar-text">
+  <div class="bg-secondary">
+    <button class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0" @click="login"
+      v-if="!user.isAuthenticated">
+      Login
+    </button>
+    <div type="button" class="selectable my-3 p-2">
+      <div v-if="account.picture || user.picture">
+        <img :src="account.picture || user.picture" alt="account photo" height="40" class="rounded account-pic" />
+      </div>
+    </div>
+    <router-link :to="{ name: 'Account' }">
+      <div class="text-center">
+        <button class=" p-3 btn bg-secondary text-info mb-3"> Account </button>
+      </div>
+    </router-link>
+    <div class="text-center">
+      <button type="button" class="btn bg-success text-secondary mb-3 p-3" data-bs-toggle="modal"
+        data-bs-target="#createEventForm">
+        new event
+      </button>
+    </div>
+    <div class="text-center p-3 text-info selectable" @click="logout">
+      logout
+    </div>
+  </div>
+
+
+
+  <!-- <span class="navbar-text">
     <button class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0" @click="login"
       v-if="!user.isAuthenticated">
       Login
     </button>
     <div v-else>
       <div class="dropdown dropstart my-2 my-lg-0">
-        <div type="button" class="bg-dark border-0 selectable no-select" data-bs-toggle="dropdown"
-          aria-expanded="false">
+        <div type="button" class="bg-dark border-0 selectable no-select" data-bs-toggle="dropdown" aria-expanded="false">
           <div v-if="account.picture || user.picture">
             <img :src="account.picture || user.picture" alt="account photo" height="40" class="rounded" />
           </div>
         </div>
         <div class="dropdown-menu dropdown-menu-lg-left p-0" aria-labelledby="authDropdown">
           <div class="list-group">
-            <router-link :to="{ name: 'Account' }">
-              <div class="list-group-item dropdown-item list-group-item-action">
-                Manage Account
-              </div>
-            </router-link>
+            
             <div class="list-group-item dropdown-item list-group-item-action text-danger selectable" @click="logout">
               <i class="mdi mdi-logout"></i>
               logout
@@ -27,7 +50,7 @@
         </div>
       </div>
     </div>
-  </span>
+  </span> -->
 </template>
 
 <script>
@@ -51,4 +74,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.account-pic {
+  height: 10vh;
+  width: 10vh;
+}
 </style>

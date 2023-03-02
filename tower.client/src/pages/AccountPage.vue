@@ -4,12 +4,10 @@
       <div class="row">
         <div class="col-12">
           <h3 class="text-success"> My Events</h3>
-          <div class="scroll-x">
-            <div class="row flex-nowrap">
-              <!-- TODO This is where MY EVENTS WILL GO IN THE FUTURE -->
-              <div class="col-3" v-for="event in myEvents">
-                <SmEventCard :event="event" />
-              </div>
+          <div class="row scroll-y">
+            <!-- TODO This is where MY EVENTS WILL GO IN THE FUTURE -->
+            <div class="col-3" v-for="event in myEvents">
+              <SmEventCard :event="event" />
             </div>
           </div>
         </div>
@@ -77,16 +75,14 @@ img {
   max-width: 100px;
 }
 
-.scroll-x {
-  overflow-x: auto;
+.scroll-y {
+  overflow-y: auto;
   white-space: nowrap;
-  height: 32vh;
+  height: 30vh;
 }
 
-.scroll-x .col-3 {
+.scroll-y .col-3 {
   display: inline-block;
   vertical-align: top;
-  width: 32vh;
-  margin-right: 10px;
 }
 </style>
