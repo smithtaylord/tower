@@ -32,7 +32,9 @@ class TicketsService {
         AppState.attendees.splice(attendeeIndex, 1)
         let ticketIndex = AppState.myTickets.findIndex(t => t.id == ticketId)
         AppState.myTickets.splice(ticketIndex, 1)
-        AppState.event.capacity++
+        if (AppState.event) {
+            AppState.event.capacity++
+        }
 
     }
 }

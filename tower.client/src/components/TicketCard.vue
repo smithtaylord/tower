@@ -11,7 +11,7 @@
                     <h5 class="text-info">{{ ticket.date }}</h5>
                 </div>
                 <div class="text-end p-5">
-                    <button class="btn bg-danger text-dark selectable">not going</button>
+                    <button @click="deleteTicket(ticket.id)" class="btn bg-danger text-dark selectable">not going</button>
                 </div>
             </div>
             <div class="col-2">
@@ -24,6 +24,8 @@
 
 <script>
 import { Ticket } from '../models/Ticket.js';
+import { ticketsService } from '../services/TicketsService.js';
+import Pop from '../utils/Pop.js';
 
 export default {
     props: {
@@ -33,7 +35,16 @@ export default {
         }
     },
     setup() {
-        return {}
+        return {
+            async deleteTicket(ticketId) {
+                try {
+                    await ticketsService.deleteTicket(ticketId)
+                } catch (error) {
+                    Pop.error(error, '[delete ticket]')
+                }
+            }
+
+        }
     }
 }
 </script>

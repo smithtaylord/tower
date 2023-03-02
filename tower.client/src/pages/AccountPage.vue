@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-dark">
+  <div class="">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
@@ -23,7 +23,6 @@
             <div class="col-9 m-auto" v-for="ticket in myTickets">
               <TicketCard :ticket="ticket" />
             </div>
-
           </div>
         </div>
       </div>
@@ -32,12 +31,26 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import SmEventCard from '../components/SmEventCard.vue';
 import TicketCard from '../components/TicketCard.vue';
+import { ticketsService } from '../services/TicketsService.js';
+import Pop from '../utils/Pop.js';
 export default {
   setup() {
+
+    async function getMyTickets() {
+      try {
+        await ticketsService.getMyTickets()
+      } catch (error) {
+        Pop.error(error, '[get my tickets]')
+      }
+    }
+    onMounted(() => {
+      getMyTickets()
+    })
+
     return {
       account: computed(() => AppState.account),
       myTickets: computed(() => AppState.myTickets)
