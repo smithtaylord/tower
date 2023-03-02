@@ -11,12 +11,12 @@
     <div class="row">
       <div class="col-12">
         <div class="m-3 p-3 bg-dark d-flex justify-content-around">
-          <button class="btn bg-success">All</button>
-          <button class="btn bg-success">Concert</button>
-          <button class="btn bg-success">Convention</button>
-          <button class="btn bg-success">Sport</button>
-          <button class="btn bg-success">Digital</button>
-          <button class="btn bg-success">Misc.</button>
+          <button @click="changeFilterCategory('')" class="btn bg-success">All</button>
+          <button @click="changeFilterCategory('concert')" class="btn bg-success">Concert</button>
+          <button @click="changeFilterCategory('convention')" class="btn bg-success">Convention</button>
+          <button @click="changeFilterCategory('sport')" class="btn bg-success">Sport</button>
+          <button @click="changeFilterCategory('digital')" class="btn bg-success">Digital</button>
+          <button @click="changeFilterCategory('misc')" class="btn bg-success">Misc.</button>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { onMounted, computed } from 'vue';
+import { onMounted, computed, ref } from 'vue';
 import { eventsService } from '../services/EventsService.js';
 import Pop from '../utils/Pop.js';
 import { AppState } from '../AppState.js';
@@ -39,6 +39,7 @@ import SmEventCard from '../components/SmEventCard.vue';
 
 export default {
   setup() {
+    const filterCategory = ref('')
     async function getEvents() {
       try {
         await eventsService.getEvents();
@@ -52,9 +53,20 @@ export default {
       getEvents();
     });
     return {
-      events: computed(() => AppState.events),
-      myTickets: computed(() => AppState.myTickets)
+      events: computed(() => {
+        if (!filterCategory.value) {
+          return AppState.events
+        } else {
+          return AppState.events.filter(e => e.type == filterCategory.value)
+        }
+      }),
+      myTickets: computed(() => AppState.myTickets),
+
+      changeFilterCategory(category) {
+        filterCategory.value = category
+      }
     };
+
   },
   components: { SmEventCard }
 }

@@ -42,7 +42,7 @@
                         {{ event.description }}
                     </p>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div v-if="!event.isCanceled" class="d-flex justify-content-between">
                     <h3 v-if="event.capacity > 0"> <span class="text-info"> {{ event.capacity }} </span> spots left</h3>
                     <h3 v-else> <span class="text-danger">0</span> spots left</h3>
                     <div>
@@ -57,7 +57,7 @@
                             Ticket <i class="mdi mdi-human"></i> </button>
                     </div>
                 </div>
-                <div v-if="event.isCanceled == true">
+                <div v-else>
                     <h1 class="text-danger">EVENT IS CANCELED</h1>
                 </div>
             </div>
