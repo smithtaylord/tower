@@ -75,7 +75,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn bg-secondary selectable" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn bg-primary selectable">Submit</button>
+                    <button type="submit" data-bs-dismiss="modal" class="btn bg-primary selectable">Submit</button>
                 </div>
             </form>
         </div>
@@ -85,11 +85,15 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { AppState } from '../AppState.js';
 import { eventsService } from '../services/EventsService.js';
 import Pop from '../utils/Pop.js';
 
 export default {
     setup() {
+        const router = useRouter()
+
         const editable = ref({})
         return {
             editable,
@@ -98,6 +102,7 @@ export default {
                     const formData = editable.value
                     await eventsService.createEvent(formData)
                     editable.value = {}
+                    router.push({ name: 'EventDetails', params: { eventId: AppState.event.id } })
                 } catch (error) {
                     Pop.error(error, '[create event]')
                 }

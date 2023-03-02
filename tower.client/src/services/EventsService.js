@@ -21,6 +21,7 @@ class EventsService {
         const res = await api.post('api/events', formData)
         logger.log(res.data, '[creating event]')
         AppState.events.push(new Event(res.data))
+        AppState.event = new Event(res.data)
     }
 
     async cancelEvent(eventId) {
