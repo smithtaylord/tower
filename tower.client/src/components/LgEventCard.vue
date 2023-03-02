@@ -9,8 +9,8 @@
                     <div class="col-3 offset-9">
                         <div v-if="event.creatorId == account.id && event.isCanceled == false" class="text-end">
                             <div class="dropdown">
-                                <div type="button" class="selectable" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="text-primary mdi mdi-dots-horizontal fs-1 "></i>
+                                <div type="button" class="" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="selectable text-primary mdi mdi-dots-horizontal fs-1 "></i>
                                 </div>
                                 <div class="dropdown-menu text-center fs-5">
                                     <div class="list-group">

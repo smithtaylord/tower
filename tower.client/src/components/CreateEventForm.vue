@@ -34,8 +34,8 @@
                     </div>
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <input required v-model="editable.startDate" type="date" class="form-control" id="floatingInput"
-                                placeholder="location...">
+                            <input required v-model="editable.startDate" type="datetime-local" class="form-control"
+                                id="floatingInput" placeholder="location...">
                             <label for="floatingInput">Event Date</label>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                     <div class="col-6">
                         <div class="form-floating mb-3">
                             <input required v-model="editable.capacity" type="number" class="form-control"
-                                id="floatingInput" placeholder="name...">
+                                id="floatingInput" placeholder="name..." min="0">
                             <label for="floatingInput">Capacity</label>
                         </div>
                     </div>

@@ -13,6 +13,10 @@ class EventsService {
         }
         event.name = eventData.name || event.name
         event.description = eventData.description || event.description
+        // If I fail a postman test delete this!
+        event.location = eventData.location || event.location
+        event.capacity = eventData.capacity || event.capacity
+        event.startDate = eventData.startDate || event.startDate
         await event.save()
         return event
 

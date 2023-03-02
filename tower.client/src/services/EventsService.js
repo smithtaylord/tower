@@ -24,6 +24,12 @@ class EventsService {
         AppState.event = new Event(res.data)
     }
 
+    async editEvent(eventId, formData) {
+        const res = await api.put('api/events/' + eventId, formData)
+        logger.log(res.data, '[edit event]')
+        AppState.event = new Event(res.data)
+    }
+
     async cancelEvent(eventId) {
         const res = await api.delete('api/events/' + eventId)
         logger.log(res.data, '[canceled event]')
