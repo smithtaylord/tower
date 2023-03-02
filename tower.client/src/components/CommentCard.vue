@@ -13,12 +13,21 @@
 
         <div class="row d-flex align-items-center" v-for="c in comments">
             <div class="col-4 col-md-2 col-xl-1 py-2 text-center">
-                <img class="rounded-circle comment-pic " :src="c.creator.picture" :alt="c.creator.name">
+                <img class="rounded-circle comment-pic img-fluid" :src="c.creator.picture" :alt="c.creator.name">
             </div>
             <div class="col-8 col-md-10 col-xl-11 py-2 ">
                 <div class="bg-info comment-area rounded p-2">
-                    <span><b>{{ c.creator.name }}</b> <b v-if="c.isAttending" class="text-primary">Attending this
-                            event</b></span>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <span><b>{{ c.creator.name }}</b> <b v-if="c.isAttending" class="text-primary">Attending this
+                                    event</b> </span>
+                        </div>
+                        <div>
+                            <i v-if="c.creator.id == account.id" @click="deleteComment(c)"
+                                class="mdi mdi-delete-forever text-danger text-end bg-dark rounded fs-5 selectable"
+                                title="delete-comment"></i>
+                        </div>
+                    </div>
                     <p>{{ c.body }}</p>
                 </div>
             </div>
@@ -56,6 +65,7 @@ export default {
         return {
             editable,
             comments: computed(() => AppState.comments),
+            account: computed(() => AppState.account),
             async createComment() {
                 try {
                     // TODO Is this the right way to do this? Or is there an easier way to attach the eventId?
@@ -69,6 +79,14 @@ export default {
                 } catch (error) {
                     Pop.error(error, '[create comment]')
                 }
+            },
+            async deleteComment(comment) {
+                try {
+                    const commentId = comment.id
+                    await commentsService.deleteComment(commentId)
+                } catch (error) {
+                    Pop.error(error, '[delete comment]')
+                }
             }
         }
     }
@@ -78,8 +96,9 @@ export default {
 
 <style lang="scss" scoped>
 .comment-pic {
-    height: 7vh;
-    width: 7vh;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .comment-area {

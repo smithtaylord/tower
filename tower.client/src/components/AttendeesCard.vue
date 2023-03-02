@@ -1,7 +1,10 @@
 <template>
     <div class="p-2">
-        <div class="bg-secondary p-2" v-for="a in attendees">
-            <img class="rounded-circle attendee-pic" :src="a.profile.picture" :alt="a.profile.name" :title="a.profile.name">
+        <div class="bg-secondary p-2">
+            <span v-for="a in attendees">
+                <img class="rounded-circle attendee-pic img-fluid p-1" :src="a.profile.picture" :alt="a.profile.name"
+                    :title="a.profile.name">
+            </span>
         </div>
     </div>
 </template>
@@ -23,8 +26,8 @@ export default {
 
 <style lang="scss" scoped>
 .attendee-pic {
-    height: 5vh;
-    width: 5vh;
+    height: 6vh;
+    width: 6vh;
     object-fit: cover
 }
 </style>
