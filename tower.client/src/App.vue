@@ -5,9 +5,6 @@
   <main class="bg-dark">
     <router-view />
   </main>
-  <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
-  </footer>
   <Modal id="createEventForm">
     <CreateEventForm />
   </Modal>

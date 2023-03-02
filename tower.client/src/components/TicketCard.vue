@@ -2,7 +2,9 @@
     <div class="bg-secondary my-3">
         <div class="row align-items-center">
             <div class="col-4">
-                <img class="img-fluid ticket-pic" :src="ticket.coverImg" alt="">
+                <router-link :to="{ name: 'EventDetails', params: { eventId: ticket.eventId } }">
+                    <img class="img-fluid ticket-pic" :src="ticket.coverImg" alt="">
+                </router-link>
             </div>
             <div class="col-6 d-flex justify-content-between flex-column">
                 <div class="p-3">

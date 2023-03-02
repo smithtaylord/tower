@@ -7,9 +7,9 @@
           <div class="scroll-x">
             <div class="row flex-nowrap">
               <!-- TODO This is where MY EVENTS WILL GO IN THE FUTURE -->
-              <!-- <div class="col-3" v-for="event in myTickets">
-              <SmEventCard :event="event" />
-            </div> -->
+              <div class="col-3" v-for="event in myEvents">
+                <SmEventCard :event="event" />
+              </div>
             </div>
           </div>
         </div>
@@ -35,10 +35,20 @@ import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import SmEventCard from '../components/SmEventCard.vue';
 import TicketCard from '../components/TicketCard.vue';
+import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js';
 import Pop from '../utils/Pop.js';
 export default {
   setup() {
+
+    async function getEvents() {
+      try {
+        await eventsService.getEvents();
+      }
+      catch (error) {
+        Pop.error(error, "[error getting events]");
+      }
+    }
 
     async function getMyTickets() {
       try {
@@ -49,11 +59,13 @@ export default {
     }
     onMounted(() => {
       getMyTickets()
+      getEvents()
     })
 
     return {
       account: computed(() => AppState.account),
-      myTickets: computed(() => AppState.myTickets)
+      myTickets: computed(() => AppState.myTickets),
+      myEvents: computed(() => AppState.events.filter(e => e.creator.id == AppState.account.id))
     };
   },
   components: { SmEventCard, TicketCard }
