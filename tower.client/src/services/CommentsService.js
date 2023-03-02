@@ -10,6 +10,12 @@ class CommentsService {
         AppState.comments = res.data.map(c => new Comment(c))
     }
 
+    async createComment(formData) {
+        const res = await api.post('api/comments', formData)
+        logger.log(res.data, '[create comment]')
+        AppState.comments.push(new Comment(res.data))
+    }
+
 
 }
 

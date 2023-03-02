@@ -1,11 +1,10 @@
 <template>
     <div class="bg-secondary p-3">
         <h5 class="text-end text-success">Join the converstaion</h5>
-        <form action="">
-            <div class="form-floating py-3">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+        <form @submit.prevent="createComment">
+            <div class="py-3">
+                <textarea required v-model="editable.body" class="form-control p-2" placeholder="Tell the people..."
                     style="height: 100px" maxlength="2500" minlength="2"></textarea>
-                <label for="floatingTextarea2">Tell the people...</label>
                 <div class="d-flex justify-content-end py-3">
                     <button class="btn bg-success text-dark fw-bold" type="submit">post comment</button>
                 </div>
@@ -30,14 +29,16 @@
 
 <script>
 import { AppState } from '../AppState.js';
-import { watchEffect, computed } from 'vue';
+import { watchEffect, computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { commentsService } from '../services/CommentsService.js';
 import Pop from '../utils/Pop.js';
+import { logger } from '../utils/Logger.js';
 
 export default {
     setup() {
         const route = useRoute();
+        const editable = ref({})
 
         async function getComments() {
             try {
@@ -53,7 +54,22 @@ export default {
             }
         })
         return {
-            comments: computed(() => AppState.comments)
+            editable,
+            comments: computed(() => AppState.comments),
+            async createComment() {
+                try {
+                    // TODO Is this the right way to do this? Or is there an easier way to attach the eventId?
+                    let formData = editable.value
+                    const eventId = route.params.eventId
+                    formData.eventId = eventId
+                    // logger.log(formData, eventId)
+                    await commentsService.createComment(formData)
+                    editable.value = {}
+
+                } catch (error) {
+                    Pop.error(error, '[create comment]')
+                }
+            }
         }
     }
 }

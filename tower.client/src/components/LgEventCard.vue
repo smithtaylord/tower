@@ -19,7 +19,7 @@
                                     </div>
                                     <div class="list-group">
                                         <span @click="cancelEvent(event)" class="selectable"> cancel event<i
-                                                class="mdi mdi-trash-can-outline text-danger my-2"></i></span>
+                                                class="mdi mdi-cancel text-danger my-2"></i></span>
                                     </div>
                                 </div>
                             </div>
