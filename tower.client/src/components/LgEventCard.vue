@@ -1,64 +1,75 @@
 <template>
-    <div class="m-3 p-3 mt-5">
-        <div class="row">
-            <div class="col-4">
-                <img class="img-fluid" :src="event.coverImg" :alt="event.name">
-            </div>
-            <div class="col-8">
-                <div class="row">
-                    <div class="col-3 offset-9">
-                        <div v-if="event.creatorId == account.id && event.isCanceled == false" class="text-end">
-                            <div class="dropdown">
-                                <div type="button" class="" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="selectable text-primary mdi mdi-dots-horizontal fs-1 "></i>
+    <div :style="event.isCanceled ? { filter: 'grayscale(50%)' } : { backgroundImage: 'url(' + event.coverImg + ')', backgroundSize: 'cover' }"
+        class="tower-box-shadow">
+        <div class="px-3 mt-5 bg-card pt-4">
+            <div class="row">
+                <div class="col-3 offset-9">
+                    <div v-if="event.creatorId == account.id && event.isCanceled == false" class="text-end">
+                        <div class="dropdown">
+                            <div type="button" class="" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="selectable text-primary mdi mdi-dots-horizontal fs-3 "></i>
+                            </div>
+                            <div class="dropdown-menu text-center fs-5">
+                                <div class="list-group">
+                                    <span data-bs-toggle="modal" data-bs-target="#editEventForm"
+                                        class="selectable no-shadow">
+                                        <i class="mdi mdi-lead-pencil my-2  pe-3">
+                                        </i>edit event</span>
                                 </div>
-                                <div class="dropdown-menu text-center fs-5">
-                                    <div class="list-group">
-                                        <span data-bs-toggle="modal" data-bs-target="#editEventForm" class="selectable">
-                                            edit event<i class="mdi mdi-lead-pencil my-2"></i></span>
-                                    </div>
-                                    <div class="list-group">
-                                        <span @click="cancelEvent(event)" class="selectable"> cancel event<i
-                                                class="mdi mdi-cancel text-danger my-2"></i></span>
-                                    </div>
+                                <div class="list-group">
+                                    <span @click="cancelEvent(event)" class="selectable no-shadow">
+                                        <i class="mdi mdi-cancel text-danger my-2  pe-2">
+                                        </i> cancel event</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h3>{{ event.name }}</h3>
-                        <h4>{{ event.location }}</h4>
+            </div>
+            <div class="row">
+                <div class="col-4 pb-5">
+                    <img class="img-fluid event-pic border" :src="event.coverImg" :alt="event.name"
+                        :style="event.isCanceled ? { filter: 'grayscale(100%)' } : {}">
+                </div>
+                <div class="col-8">
+
+                    <div class="d-flex justify-content-between ">
+                        <div>
+                            <h2 class="pb-3">{{ event.name }}</h2>
+                            <h4 class="text-info">{{ event.location }}</h4>
+                        </div>
+                        <div>
+                            <h3 class="text-info pb-3 text-end pe-3">{{ event.date }}</h3>
+                            <h4 class="text-info text-end pe-3">{{ event.time }}</h4>
+                        </div>
                     </div>
                     <div>
-                        <h3>{{ event.date }}</h3>
-                        <h4>{{ event.time }}</h4>
-                        <h4></h4>
+                        <p class="event-body pt-3">
+                            {{ event.description }}
+                        </p>
                     </div>
-                </div>
-                <div>
-                    <p>
-                        {{ event.description }}
-                    </p>
-                </div>
-                <div v-if="!event.isCanceled" class="d-flex justify-content-between">
-                    <h3 v-if="event.capacity > 0"> <span class="text-info"> {{ event.capacity }} </span> spots left</h3>
-                    <h3 v-else> <span class="text-danger">0</span> spots left</h3>
-                    <div>
-                        <button v-if="event.capacity <= 0" class="btn bg-danger" :disabled="event.capacity <= 0">Event Sold
-                            Out
-                            <i class="mdi mdi-human"></i></button>
-                        <button v-else-if="!foundTicket" @click="createTicket(event.id)"
-                            class="btn bg-warning selectable">Attend
-                            <i class="mdi mdi-human"></i></button>
-                        <button v-else-if="foundTicket" @click="deleteTicket(foundTicket.id)"
-                            class="btn bg-info selectable">Return
-                            Ticket <i class="mdi mdi-human"></i> </button>
+                    <div v-if="!event.isCanceled" class="d-flex justify-content-between">
+                        <h3 v-if="event.capacity > 0"> <span class="text-info"><b class="fs-2 pe-2">{{ event.capacity
+                        }}</b>
+                            </span> spots left
+                        </h3>
+                        <h3 v-else> <span class="text-danger">0</span> spots left</h3>
+                        <div class="px-3">
+                            <button v-if="event.capacity <= 0" class="btn bg-danger" :disabled="event.capacity <= 0">Event
+                                Sold
+                                Out
+                                <i class="mdi mdi-human"></i></button>
+                            <button v-else-if="!foundTicket" @click="createTicket(event.id)"
+                                class="btn bg-warning selectablem fs-5 p-2 tower-box-shadow hover" title="attend">Attend
+                                <i class="mdi mdi-human"></i></button>
+                            <button v-else-if="foundTicket" @click="deleteTicket(foundTicket.id)"
+                                class="btn bg-info selectable fs-5  p-2 tower-box-shadow hover" title="return ticket">Return
+                                Ticket <i class="mdi mdi-human"></i> </button>
+                        </div>
                     </div>
-                </div>
-                <div v-else>
-                    <h1 class="text-danger">EVENT IS CANCELED</h1>
+                    <div v-else>
+                        <h1 class="text-danger no-filter">EVENT IS CANCELED</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,4 +121,34 @@ export default {
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.bg-card {
+    backdrop-filter: blur(7px);
+    background-color: #246c8e72;
+    width: 100%;
+    text-shadow: 1px 1px 2px black;
+}
+
+.event-pic {
+    height: 35vh;
+    width: 35vh;
+    object-fit: cover;
+}
+
+.event-body {
+    height: 20vh;
+    overflow-y: auto;
+}
+
+.hover:hover {
+    text-shadow: 1px 1px 2px black;
+}
+
+.no-filter {
+    filter: grayscale(0%);
+}
+
+.no-shadow {
+    text-shadow: none;
+}
+</style>

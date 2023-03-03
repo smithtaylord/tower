@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-secondary p-3">
+    <div class="bg-secondary p-3 tower-box-shadow">
         <h5 class="text-end text-success">Join the converstaion</h5>
         <form @submit.prevent="createComment">
             <div class="py-3">
@@ -13,10 +13,11 @@
 
         <div class="row d-flex align-items-center" v-for="c in comments">
             <div class="col-4 col-md-2 col-xl-1 py-2 text-center">
-                <img class="rounded-circle comment-pic img-fluid" :src="c.creator.picture" :alt="c.creator.name">
+                <img class="rounded-circle comment-pic img-fluid tower-box-shadow" :src="c.creator.picture"
+                    :alt="c.creator.name">
             </div>
             <div class="col-8 col-md-10 col-xl-11 py-2 ">
-                <div class="bg-info comment-area rounded p-2">
+                <div class="bg-info comment-area rounded p-2 tower-box-shadow">
                     <div class="d-flex justify-content-between">
                         <div>
                             <span>
