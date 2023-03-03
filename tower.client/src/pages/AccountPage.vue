@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h3 class="text-success"> My Events</h3>
+          <h3 class="text-success p-3 mt-3"> My Events</h3>
           <div class="row scroll-y">
             <!-- TODO This is where MY EVENTS WILL GO IN THE FUTURE -->
             <div class="col-3" v-for="event in myEvents">
@@ -16,7 +16,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h3 class="text-success">Upcoming events</h3>
+          <h3 class="text-success mt-5 p-3">Upcoming events</h3>
           <div class="row">
             <div class="col-9 m-auto" v-for="ticket in myTickets">
               <TicketCard :ticket="ticket" />

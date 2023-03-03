@@ -1,24 +1,25 @@
 <template>
-    <div class="bg-secondary my-3">
+    <div class="bg-secondary my-4 tower-box-shadow">
         <div class="row align-items-center">
             <div class="col-4">
                 <router-link :to="{ name: 'EventDetails', params: { eventId: ticket.eventId } }">
                     <img class="img-fluid ticket-pic" :src="ticket.coverImg" alt="">
                 </router-link>
             </div>
-            <div class="col-6 d-flex justify-content-between flex-column">
+            <div class="col-lg-5 col-xxl-6 d-flex justify-content-between flex-column">
                 <div class="p-3 fancy-text">
-                    <h4 class="text-body-bg">{{ ticket.name }}</h4>
-                    <h5 class="text-info">{{ ticket.location }}</h5>
-                    <h5 class="text-info">{{ ticket.date }}</h5>
+                    <h4 class="text-body-bg text-shadow">{{ ticket.name }}</h4>
+                    <h5 class="text-info text-shadow">{{ ticket.location }}</h5>
+                    <h5 class="text-info text-shadow">{{ ticket.date }}</h5>
                 </div>
-                <div class="text-end p-5">
-                    <button @click="deleteTicket(ticket.id)" class="btn bg-danger text-dark fw-bold selectable">not
+                <div class="text-end ps-5 py-5">
+                    <button @click="deleteTicket(ticket.id)"
+                        class="btn bg-danger text-dark fw-bold selectable not-going">not
                         going</button>
                 </div>
             </div>
             <div class="col-2">
-                <div class="bg-dark punch"></div>
+                <div class="bg-dark punch d-none d-lg-block"></div>
             </div>
         </div>
     </div>
@@ -55,17 +56,30 @@ export default {
 
 <style lang="scss" scoped>
 .ticket-pic {
-    height: 25vh;
+    height: 30vh;
+    width: 30vh;
+    object-fit: cover;
 }
 
 .punch {
-    height: 15vh;
-    width: 15vh;
+    height: 16vh;
+    width: 16vh;
     border-radius: 50%;
-    transform: translateX(9vh);
+    transform: translateX(10vh);
+    box-shadow: -1px 0px 1px 0px #171920;
+    // box-shadow: -30px 0px -30px 0px #171920;
 }
 
 .fancy-text {
     font-family: 'Inter', sans-serif
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 2px black;
+}
+
+.not-going {
+    width: 10vw;
+    transform: translateX(5vw);
 }
 </style>
