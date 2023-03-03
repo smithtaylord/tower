@@ -7,7 +7,8 @@
                     <div v-if="event.creatorId == account.id && event.isCanceled == false" class="text-end">
                         <div class="dropdown">
                             <div type="button" class="" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="selectable text-primary mdi mdi-dots-horizontal fs-3 "></i>
+                                <i class="selectable text-primary mdi mdi-dots-horizontal fs-3 "
+                                    title="edit/delete menu"></i>
                             </div>
                             <div class="dropdown-menu text-center fs-5">
                                 <div class="list-group">
@@ -82,6 +83,7 @@ import { computed } from 'vue';
 import { AppState } from '../AppState.js';
 import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js'
+import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
 
 export default {
@@ -106,6 +108,7 @@ export default {
                     await ticketsService.createTicket(eventId)
                 } catch (error) {
                     Pop.error(error, '[create ticket]')
+                    logger.log(error.message)
                 }
             },
             async deleteTicket(ticketId) {

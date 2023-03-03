@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-secondary p-3 tower-box-shadow">
+    <div class="bg-secondary p-3 tower-box-shadow mb-5">
         <h5 class="text-end text-success">Join the converstaion</h5>
         <form @submit.prevent="createComment">
             <div class="py-3">

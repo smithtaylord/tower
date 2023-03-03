@@ -34,10 +34,8 @@
                     </div>
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <!-- TODO Is there an easier way to write this? -->
                             <input required v-model="editable.startDate" type="datetime-local" class="form-control"
-                                id="floatingInput" placeholder="location..."
-                                :min="new Date().toISOString().split('T')[0] + 'T' + new Date().toLocaleTimeString('en-US', { hour12: false })">
+                                id="floatingInput" placeholder="location...">
                             <label for="floatingInput">Event Date</label>
                         </div>
                     </div>
