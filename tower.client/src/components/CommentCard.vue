@@ -103,7 +103,7 @@ export default {
 
 <style lang="scss" scoped>
 .comment-pic {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
 }
