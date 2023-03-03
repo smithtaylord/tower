@@ -1,7 +1,7 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Create an Event</h1>
+            <h1 class="modal-title fs-5" id="ModalLabel">Create an Event</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -34,8 +34,10 @@
                     </div>
                     <div class="col-6">
                         <div class="form-floating mb-3">
+                            <!-- TODO Is there an easier way to write this? -->
                             <input required v-model="editable.startDate" type="datetime-local" class="form-control"
-                                id="floatingInput" placeholder="location...">
+                                id="floatingInput" placeholder="location..."
+                                :min="new Date().toISOString().split('T')[0] + 'T' + new Date().toLocaleTimeString('en-US', { hour12: false })">
                             <label for="floatingInput">Event Date</label>
                         </div>
                     </div>
