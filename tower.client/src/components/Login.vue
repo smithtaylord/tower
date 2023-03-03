@@ -6,8 +6,8 @@
     </button>
     <div type="button" class=" my-3 p-2 text-center">
       <div v-if="account.picture || user.picture">
-        <img :src="account.picture || user.picture" alt="account photo" height="40"
-          class="rounded account-pic selectable" />
+        <img :src="account.picture || user.picture" alt="account photo" height="40" class="rounded account-pic selectable"
+          :title="account.name || user.name" />
       </div>
     </div>
     <router-link class="" :to="{ name: 'Home' }">

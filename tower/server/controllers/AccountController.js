@@ -10,20 +10,20 @@ export class AccountController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
       .get('/tickets', this.getMyTickets)
-    // .put('', this.editAccount)
+      .put('', this.editAccount)
   }
 
-  // FIXME THIS IS WHERE TO EDIT ACCOUNT INFO. 
-  // async editAccount(req, res, next) {
-  //   try {
-  //     const accountData = req.body
-  //     const userId = req.userInfo.id
-  //     const account = await accountService.updateAccount(userId, accountData)
-  //     return res.send(account)
-  //   } catch (error) {
-  //     next(error)
-  //   }
-  // }
+  // NOTE THIS IS WHERE TO EDIT ACCOUNT INFO. 
+  async editAccount(req, res, next) {
+    try {
+      const accountData = req.body
+      const userId = req.userInfo
+      const account = await accountService.updateAccount(userId, accountData)
+      return res.send(account)
+    } catch (error) {
+      next(error)
+    }
+  }
   async getMyTickets(req, res, next) {
     try {
       const accountId = req.userInfo.id
