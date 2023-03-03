@@ -1,27 +1,35 @@
 <template>
-  <div class="bg-secondary">
+  <div class="">
     <button class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0" @click="login"
       v-if="!user.isAuthenticated">
       Login
     </button>
-    <div type="button" class="selectable my-3 p-2">
+    <div type="button" class=" my-3 p-2 text-center">
       <div v-if="account.picture || user.picture">
-        <img :src="account.picture || user.picture" alt="account photo" height="40" class="rounded account-pic" />
+        <img :src="account.picture || user.picture" alt="account photo" height="40"
+          class="rounded account-pic selectable" />
       </div>
     </div>
-    <router-link :to="{ name: 'Account' }">
+    <router-link class="" :to="{ name: 'Home' }">
       <div class="text-center">
-        <button class=" p-3 btn bg-secondary text-info mb-3"> Account </button>
+        <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> home </button>
       </div>
     </router-link>
-    <div class="text-center">
-      <button type="button" class="btn bg-success text-secondary mb-3 p-3" data-bs-toggle="modal"
-        data-bs-target="#createEventForm">
+    <router-link :to="{ name: 'Account' }">
+      <div class="text-center">
+        <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> Account </button>
+      </div>
+    </router-link>
+    <div class="text-center p-1">
+      <button type="button" class="btn-width btn bg-success text-secondary mb-3 px-2 py-3 fs-5 selectable"
+        data-bs-toggle="modal" data-bs-target="#createEventForm">
         new event
       </button>
     </div>
-    <div class="text-center p-3 text-info selectable" @click="logout">
-      logout
+    <div class="text-center p-1">
+      <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable" @click="logout">
+        logout
+      </button>
     </div>
   </div>
 
@@ -77,5 +85,12 @@ export default {
 .account-pic {
   height: 10vh;
   width: 10vh;
+  border: 1px solid #56C7FB;
+  box-shadow: 1px 1px 1px #171920;
+}
+
+.btn-width {
+  width: 8vw;
+  box-shadow: 1px 1px 1px #171920;
 }
 </style>

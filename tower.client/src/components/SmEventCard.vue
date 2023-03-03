@@ -5,7 +5,7 @@
                 <router-link :to="{ name: 'EventDetails', params: { eventId: event.id } }">
                     <img class="img-fluid event-img selectable" :src="event.coverImg" :alt="event.name"
                         :style="event.isCanceled ? { filter: 'grayscale(100%)' } : {}">
-                    <div class="position-absolute bottom-0 start-0 glass-card rounded">
+                    <div class="position-absolute bottom-0 start-0 glass-card rounded-top">
                         <h5 class="ps-2 pt-3 text-body-bg"><b>{{ event.name }}</b></h5>
                         <h6 class="ps-2 text-info">{{ event.location }}</h6>
                         <div v-if="!event.isCanceled">

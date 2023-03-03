@@ -8,7 +8,7 @@
       <router-view />
     </div>
   </main>
-  <footer class="py-4 bg-secondary footer">
+  <footer class="py-4 bg-dark bg-gradient footer">
     <Login />
   </footer>
   <Modal id="createEventForm">
