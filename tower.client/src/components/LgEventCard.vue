@@ -60,6 +60,7 @@
                                 Sold
                                 Out
                                 <i class="mdi mdi-human"></i></button>
+
                             <button v-else-if="!foundTicket" @click="createTicket(event.id)"
                                 class="btn bg-warning selectablem fs-5 p-2 tower-box-shadow hover" title="attend">Attend
                                 <i class="mdi mdi-human"></i></button>

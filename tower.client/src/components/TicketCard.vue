@@ -42,7 +42,9 @@ export default {
         return {
             async deleteTicket(ticketId) {
                 try {
-                    await ticketsService.deleteTicket(ticketId)
+                    if (await Pop.confirm("Are you sure you want to delete this ticket?")) {
+                        await ticketsService.deleteTicket(ticketId)
+                    }
                 } catch (error) {
                     Pop.error(error, '[delete ticket]')
                 }

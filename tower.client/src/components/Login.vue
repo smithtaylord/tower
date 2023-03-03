@@ -17,7 +17,7 @@
     </router-link>
     <router-link :to="{ name: 'Account' }">
       <div v-if="account.picture || user.picture" class=" text-center">
-        <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> Account </button>
+        <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> account </button>
       </div>
     </router-link>
     <div v-if="account.picture || user.picture" class=" text-center p-1">

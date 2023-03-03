@@ -1,15 +1,17 @@
 <template>
     <div class="bg-secondary p-3 tower-box-shadow mb-5">
-        <h5 class="text-end text-success">Join the converstaion</h5>
-        <form @submit.prevent="createComment">
-            <div class="py-3">
-                <textarea required v-model="editable.body" class="form-control p-2" placeholder="Tell the people..."
-                    style="height: 100px" maxlength="2500" minlength="2"></textarea>
-                <div class="d-flex justify-content-end py-3">
-                    <button class="btn bg-success text-dark fw-bold" type="submit">post comment</button>
+        <div v-if="!event.isCanceled">
+            <h5 class="text-end text-success">Join the converstaion</h5>
+            <form @submit.prevent="createComment">
+                <div class="py-3">
+                    <textarea required v-model="editable.body" class="form-control p-2" placeholder="Tell the people..."
+                        style="height: 100px" maxlength="2500" minlength="2"></textarea>
+                    <div class="d-flex justify-content-end py-3">
+                        <button class="btn bg-success text-dark fw-bold" type="submit">post comment</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
 
         <div class="row d-flex align-items-center" v-for="c in comments">
             <div class="col-4 col-md-2 col-xl-1 py-2 text-center">
@@ -37,6 +39,10 @@
                     <p>{{ c.body }}</p>
                 </div>
             </div>
+        </div>
+
+        <div v-if="event.isCanceled && comments.length == 0" class="p-3">
+            <h5>There are no comments for this event...</h5>
         </div>
     </div>
 </template>
@@ -72,6 +78,7 @@ export default {
             editable,
             comments: computed(() => AppState.comments),
             account: computed(() => AppState.account),
+            event: computed(() => AppState.event),
             attendees: computed(() => AppState.attendees),
             async createComment() {
                 try {
