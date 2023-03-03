@@ -1,7 +1,7 @@
 <template>
     <div class="p-3">
-        <div class="event-card">
-            <div class="card position-relative">
+        <div class="event-card tower-box-shadow card-border  rounded">
+            <div class="card position-relative card-border rounded">
                 <router-link :to="{ name: 'EventDetails', params: { eventId: event.id } }">
                     <img class="img-fluid event-img selectable" :src="event.coverImg" :alt="event.name">
                     <div class="position-absolute bottom-0 start-0 glass-card rounded">
@@ -36,11 +36,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.event-card {
-    height: 27vh;
-    width: 100%;
-}
-
 .event-img {
     height: 27vh;
     width: 100%;
@@ -54,7 +49,12 @@ export default {
 .glass-card {
     color: white;
     text-shadow: 1px 1px 2px black;
-    background-color: #CCF3FD33;
+    background-color: #ccf3fd2b;
     width: 100%;
+    backdrop-filter: blur(7px)
+}
+
+.card-border {
+    border: 3px solid #474C61;
 }
 </style>

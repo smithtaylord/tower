@@ -2,23 +2,57 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="m-3 p-3 bg-dark fancy-text fs-3 background-image blue-border"
+        <div class="m-3 p-3 bg-dark fancy-text fs-3 background-image blue-border tower-box-shadow"
           style="background-image: url(unsplash_kcJsQ3PJrYU.jpg); background-size: cover;">
           <p class="p-4">Get ahead of the scalpers. <br> Reserve your seat now with <br> real events for real people.
           </p>
         </div>
       </div>
     </div>
-
     <div class="row">
-      <div class="col-12">
-        <div class="m-3 p-3 bg-dark d-flex justify-content-around">
-          <button @click="changeFilterCategory('')" class="btn bg-success fancy-text fs-3">All</button>
-          <button @click="changeFilterCategory('concert')" class="btn bg-success fancy-text fs-3">Concert</button>
-          <button @click="changeFilterCategory('convention')" class="btn bg-success fancy-text fs-3">Convention</button>
-          <button @click="changeFilterCategory('sport')" class="btn bg-success fancy-text fs-3">Sport</button>
-          <button @click="changeFilterCategory('digital')" class="btn bg-success fancy-text fs-3">Digital</button>
-          <button @click="changeFilterCategory('misc')" class="btn bg-success fancy-text fs-3">Misc.</button>
+      <div class="col-22">
+        <div class="m-3 pt-2 bg-secondary rounded tower-box-shadow">
+          <div class="row">
+            <div class="col-2 ">
+              <h4 @click="changeFilterCategory('')"
+                class="fancy-hover text-center  fancy-text fs-4 align-items-center p-3 bottom-border-hover">All</h4>
+
+            </div>
+            <div class="col-2">
+              <h4 @click="changeFilterCategory('concert')"
+                class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Concert
+              </h4>
+
+            </div>
+            <div class="col-2">
+              <h4 @click="changeFilterCategory('convention')"
+                class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">
+                Convention
+              </h4>
+
+            </div>
+            <div class="col-2">
+              <h4 @click="changeFilterCategory('sport')"
+                class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Sport
+              </h4>
+
+            </div>
+            <div class="col-2">
+              <h4 @click="changeFilterCategory('digital')"
+                class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Digital
+              </h4>
+
+            </div>
+            <div class="col-2">
+              <h4 @click="changeFilterCategory('misc')"
+                class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Misc.
+              </h4>
+
+            </div>
+          </div>
+
+
+
         </div>
       </div>
     </div>
