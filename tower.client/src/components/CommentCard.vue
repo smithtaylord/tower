@@ -22,7 +22,8 @@
                         <div>
                             <span>
                                 <b>{{ c.creator.name }}</b>
-                                <b v-if="attendees.find(a => a.accountId == c.creator.id)" class="text-primary">
+                                <b v-if="attendees.find(a => a.accountId == c.creator.id)" class="text-secondary"><i
+                                        class="mdi mdi-check ms-4"></i>
                                     Attending this event
                                 </b>
                             </span>
@@ -104,13 +105,19 @@ export default {
 
 <style lang="scss" scoped>
 .comment-pic {
-    width: 100%;
-    height: auto;
+    width: 6vh;
+    height: 6vh;
+    object-fit: cover;
     display: block;
 }
 
 .comment-area {
     min-height: 7vh;
 
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 2px black;
+    color: whitesmoke;
 }
 </style>

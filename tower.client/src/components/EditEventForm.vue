@@ -65,10 +65,10 @@ export default {
 
             async editEvent() {
                 try {
-                    logger.log(editable.value)
-                    // const eventId = route.params.eventId
-                    // const formData = editable.value
-                    // await eventsService.editEvent(eventId, formData)
+                    // logger.log(editable.value)
+                    const eventId = route.params.eventId
+                    const formData = editable.value
+                    await eventsService.editEvent(eventId, formData)
                 } catch (error) {
                     Pop.error(error, '[edit event]')
                 }

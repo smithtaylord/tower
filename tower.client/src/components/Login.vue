@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <button class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0" @click="login"
+  <div class="text-center my-3 p-2">
+    <button class="btn-width btn bg-success text-secondary mb-3 px-2 py-3 fs-5 selectable" @click="login"
       v-if="!user.isAuthenticated">
       Login
     </button>
@@ -11,22 +11,28 @@
       </div>
     </div>
     <router-link class="" :to="{ name: 'Home' }">
-      <div class="text-center">
+      <div v-if="account.picture || user.picture" class=" text-center">
         <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> home </button>
       </div>
     </router-link>
     <router-link :to="{ name: 'Account' }">
-      <div class="text-center">
+      <div v-if="account.picture || user.picture" class=" text-center">
         <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> Account </button>
       </div>
     </router-link>
-    <div class="text-center p-1">
+    <div v-if="account.picture || user.picture" class=" text-center p-1">
       <button type="button" class="btn-width btn bg-success text-secondary mb-3 px-2 py-3 fs-5 selectable"
         data-bs-toggle="modal" data-bs-target="#createEventForm">
         new event
       </button>
     </div>
-    <div class="text-center p-1">
+    <div v-if="account.picture || user.picture" class=" text-center p-1">
+      <button type="button" class="btn-width btn bg-secondary text-info mb-3 px-2 py-3 fs-5 selectable"
+        data-bs-toggle="modal" data-bs-target="#editAccountForm">
+        edit account
+      </button>
+    </div>
+    <div v-if="account.picture || user.picture" class=" text-center p-1">
       <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable" @click="logout">
         logout
       </button>
@@ -85,6 +91,7 @@ export default {
 .account-pic {
   height: 10vh;
   width: 10vh;
+  object-fit: cover;
   border: 1px solid #56C7FB;
   box-shadow: 1px 1px 1px #171920;
 }

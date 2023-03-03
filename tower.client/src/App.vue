@@ -17,12 +17,16 @@
   <Modal id="editEventForm">
     <EditEventForm />
   </Modal>
+  <Modal id="editAccountForm">
+    <EditAccountForm />
+  </Modal>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
 import CreateEventForm from './components/CreateEventForm.vue'
+import EditAccountForm from './components/EditAccountForm.vue'
 import EditEventForm from './components/EditEventForm.vue'
 import Login from './components/Login.vue'
 import Modal from './components/Modal.vue'
@@ -34,7 +38,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar, Modal, CreateEventForm, EditEventForm, Login }
+  components: { Navbar, Modal, CreateEventForm, EditEventForm, Login, EditAccountForm }
 }
 </script>
 <style lang="scss">
