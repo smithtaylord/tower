@@ -56,7 +56,10 @@ form:invalid button[type="submit"] {
 .fancy-hover:hover {
   color: #79E7AB;
   cursor: pointer;
+}
 
+.bottom-border-hover {
+  border-bottom: 7px solid #474C61;
 }
 
 .bottom-border-hover:hover {
