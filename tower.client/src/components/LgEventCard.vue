@@ -56,21 +56,24 @@
                         </h3>
                         <h3 v-else> <span class="text-danger">0</span> spots left</h3>
                         <div class="px-3">
-                            <button v-if="event.capacity <= 0" class="btn bg-danger" :disabled="event.capacity <= 0">Event
+
+                            <!-- FIXME THESE BUTTONS NEED SOME IF AND OR STATMENTS -->
+                            <button v-if="event.capacity <= 0" class="btn bg-danger sold-out me-5"
+                                :disabled="event.capacity <= 0">Event
                                 Sold
                                 Out
                                 <i class="mdi mdi-human"></i></button>
-
-                            <button v-else-if="!foundTicket" @click="createTicket(event.id)"
+                            <button v-if="!foundTicket && event.capacity > 0 && account.id" @click="createTicket(event.id)"
                                 class="btn bg-warning selectablem fs-5 p-2 tower-box-shadow hover" title="attend">Attend
                                 <i class="mdi mdi-human"></i></button>
-                            <button v-else-if="foundTicket" @click="deleteTicket(foundTicket.id)"
+                            <button v-if="(foundTicket && event.capacity <= 0) || foundTicket"
+                                @click="deleteTicket(foundTicket.id)"
                                 class="btn bg-info selectable fs-5  p-2 tower-box-shadow hover" title="return ticket">Return
                                 Ticket <i class="mdi mdi-human"></i> </button>
                         </div>
                     </div>
                     <div v-else>
-                        <h1 class="text-danger no-filter">EVENT IS CANCELED</h1>
+                        <h1 class="">EVENT IS CANCELED</h1>
                     </div>
                 </div>
             </div>
@@ -150,9 +153,14 @@ export default {
 
 .no-filter {
     filter: grayscale(0%);
+    color: #FF5977;
 }
 
 .no-shadow {
     text-shadow: none;
+}
+
+.sold-out {
+    width: 20vw;
 }
 </style>

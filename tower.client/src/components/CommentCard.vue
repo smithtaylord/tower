@@ -1,6 +1,6 @@
 <template>
     <div class="bg-secondary p-3 tower-box-shadow mb-5">
-        <div v-if="!event.isCanceled">
+        <div v-if="account.id || !event.isCanceled && account.id">
             <h5 class="text-end text-success">Join the converstaion</h5>
             <form @submit.prevent="createComment">
                 <div class="py-3">
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div v-if="event.isCanceled && comments.length == 0" class="p-3">
+        <div v-if="!account.id || (event.isCanceled && comments.length == 0)" class="p-3">
             <h5>There are no comments for this event...</h5>
         </div>
     </div>
