@@ -112,8 +112,8 @@ export default {
 
 <style lang="scss" scoped>
 .comment-pic {
-    width: 6vh;
-    height: 6vh;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     display: block;
 }

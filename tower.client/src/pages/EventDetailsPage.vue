@@ -8,14 +8,14 @@
 
         <div class="row">
             <div class="col-12">
-                <h5 class="text-info p-2">See who is attending</h5>
+                <h3 class="fs-5 text-info p-2">See who is attending</h3>
                 <AttendeesCard />
             </div>
         </div>
 
         <div class="row">
             <div class="col-9 m-auto">
-                <h5 class="text-info">What are people saying</h5>
+                <h3 class="fs-5 text-info">What are people saying</h3>
                 <CommentCard />
             </div>
         </div>

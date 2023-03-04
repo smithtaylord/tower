@@ -1,7 +1,7 @@
 <template>
     <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="ModalLabel">Create an Event</h1>
+            <h1 class="modal-title fs-5" id="CreateEvent">Create an Event</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

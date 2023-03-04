@@ -36,11 +36,11 @@
 
                     <div class="d-flex justify-content-between ">
                         <div>
-                            <h2 class="pb-3">{{ event.name }}</h2>
+                            <h4 class="pb-3 fs-2">{{ event.name }}</h4>
                             <h4 class="text-info">{{ event.location }}</h4>
                         </div>
                         <div>
-                            <h3 class="text-info pb-3 text-end pe-3">{{ event.date }}</h3>
+                            <h4 class="text-info pb-3 text-end pe-3 fs-3">{{ event.date }}</h4>
                             <h4 class="text-info text-end pe-3">{{ event.time }}</h4>
                         </div>
                     </div>
@@ -50,11 +50,11 @@
                         </p>
                     </div>
                     <div v-if="!event.isCanceled" class="d-flex justify-content-between">
-                        <h3 v-if="event.capacity > 0"> <span class="text-info"><b class="fs-2 pe-2">{{ event.capacity
+                        <h4 v-if="event.capacity > 0"> <span class="text-info"><b class="fs-2 pe-2">{{ event.capacity
                         }}</b>
                             </span> spots left
-                        </h3>
-                        <h3 v-else> <span class="text-danger">0</span> spots left</h3>
+                        </h4>
+                        <h4 v-else> <span class="text-danger fs-3">0</span> spots left</h4>
                         <div class="px-3">
 
                             <!-- FIXME THESE BUTTONS NEED SOME IF AND OR STATMENTS -->
