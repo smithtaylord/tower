@@ -9,24 +9,24 @@
 
 
                 <div class="form-floating mb-3">
-                    <input required v-model="editable.name" type="text" class="form-control" id="floatingInput"
+                    <input required v-model="editable.name" type="text" class="form-control" id="name" for="name"
                         placeholder="name..." maxlength="100" minlength="2">
                     <label for="floatingInput">Name</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input required v-model="editable.capacity" type="number" class="form-control" id="floatingInput"
-                        placeholder="name..." min="0">
+                    <input required v-model="editable.capacity" type="number" class="form-control" id="event-capacity"
+                        for="event-capacity" placeholder="name..." min="0">
                     <label for="floatingInput">Capacity</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input required v-model="editable.location" type="text" class="form-control" id="floatingInput"
-                        placeholder="location..." maxlength="100" minlength="2">
+                    <input required v-model="editable.location" type="text" class="form-control" id="location"
+                        for="location" placeholder="location..." maxlength="100" minlength="2">
                     <label for="floatingInput">Location</label>
                 </div>
                 <div class="form-floating">
                     <textarea required v-model="editable.description" class="form-control"
-                        placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" maxlength="2500"
-                        minlength="2"></textarea>
+                        placeholder="Leave a comment here" id="event-description" for="event-description"
+                        style="height: 100px" maxlength="2500" minlength="2"></textarea>
                     <label for="floatingTextarea2">Event Description</label>
                 </div>
 

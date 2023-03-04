@@ -11,15 +11,15 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <input required v-model="editable.name" type="text" class="form-control" id="floatingInput"
+                            <input required v-model="editable.name" type="text" class="form-control" id="name" for="name"
                                 placeholder="name..." maxlength="100" minlength="2">
                             <label for="floatingInput">Name</label>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <input required v-model="editable.coverImg" type="text" class="form-control" id="floatingInput"
-                                placeholder="cover image..." maxlength="1000" minlength="2">
+                            <input required v-model="editable.coverImg" type="text" class="form-control" id="cover-image"
+                                for="cover-image" placeholder="cover image..." maxlength="1000" minlength="2">
                             <label for="floatingInput">Cover Image</label>
                         </div>
                     </div>
@@ -27,15 +27,15 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <input required v-model="editable.location" type="text" class="form-control" id="floatingInput"
-                                placeholder="location..." maxlength="100" minlength="2">
+                            <input required v-model="editable.location" type="text" class="form-control" id="location"
+                                for="location" placeholder="location..." maxlength="100" minlength="2">
                             <label for="floatingInput">Location</label>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-floating mb-3">
                             <input required v-model="editable.startDate" type="datetime-local" class="form-control"
-                                id="floatingInput" placeholder="location...">
+                                id="event-date" for="event-date" placeholder="location...">
                             <label for="floatingInput">Event Date</label>
                         </div>
                     </div>
@@ -43,16 +43,15 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <input required v-model="editable.capacity" type="number" class="form-control"
-                                id="floatingInput" placeholder="name..." min="0">
+                            <input required v-model="editable.capacity" type="number" class="form-control" id="capactity"
+                                for="capacity" placeholder="name..." min="0">
                             <label for="floatingInput">Capacity</label>
                         </div>
                     </div>
                     <div class="col-6">
 
                         <div class="form-floating mb-3">
-                            <select required v-model="editable.type" class="form-select"
-                                aria-label="Default select example">
+                            <select required v-model="editable.type" class="form-select" aria-label="event-type">
                                 <option selected value="misc">Misc.</option>
                                 <option value="concert">Concert</option>
                                 <option value="convention">Convention</option>
@@ -67,8 +66,8 @@
                     <div class="col-12">
                         <div class="form-floating">
                             <textarea required v-model="editable.description" class="form-control"
-                                placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"
-                                maxlength="2500" minlength="2"></textarea>
+                                placeholder="Leave a comment here" id="event-description" for="event-description"
+                                style="height: 100px" maxlength="2500" minlength="2"></textarea>
                             <label for="floatingTextarea2">Event Description</label>
                         </div>
                     </div>

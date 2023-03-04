@@ -9,13 +9,13 @@
 
 
                 <div class="form-floating mb-3">
-                    <input required v-model="editable.name" type="text" class="form-control" id="floatingInput"
+                    <input required v-model="editable.name" type="text" class="form-control" id="name" for="name"
                         placeholder="name..." maxlength="100" minlength="2">
                     <label for="floatingInput">Name</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input required v-model="editable.picture" type="text" class="form-control" id="floatingInput"
-                        placeholder="cover image..." maxlength="1000" minlength="2">
+                    <input required v-model="editable.picture" type="text" class="form-control" id="account-picture"
+                        for="account-picture" placeholder="cover image..." maxlength="1000" minlength="2">
                     <label for="floatingInput">Account Picture </label>
                 </div>
                 <div class="modal-footer">
