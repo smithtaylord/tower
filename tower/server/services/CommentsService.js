@@ -14,11 +14,19 @@ class CommentsService {
         await comment.remove()
         return comment
     }
+
+    // FIXME If something brok it is probablt here
     async getEventComments(eventId) {
         const comments = await dbContext.Comments.find({ eventId }).populate('creator', 'name picture')
         return comments
 
     }
+
+    // async getCommentsByParentId(parentId) {
+    //     const comments = await dbContext.Comments.find({ parentId }).populate('creator', 'name picture')
+    //     return comments
+
+    // }
     async createComment(commentData) {
         const event = await eventsService.getEventById(commentData.eventId)
         if (event.isCanceled) {
