@@ -14,7 +14,7 @@
         </div>
 
         <div class="row">
-            <div class="col-9 m-auto">
+            <div class="col-12 col-md-9 m-auto">
                 <h3 class="fs-5 text-info">What are people saying</h3>
                 <CommentCard />
             </div>

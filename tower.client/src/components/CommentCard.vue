@@ -14,11 +14,11 @@
         </div>
 
         <div class="row d-flex align-items-center" v-for="c in comments">
-            <div class="col-4 col-md-2 col-xl-1 py-2 text-center">
+            <div class="col-3 col-md-2 col-xl-1 py-2 text-center">
                 <img class="rounded-circle comment-pic img-fluid tower-box-shadow" :src="c.creator.picture"
                     :alt="c.creator.name">
             </div>
-            <div class="col-8 col-md-10 col-xl-11 py-2 ">
+            <div class="col-9 col-md-10 col-xl-11 py-2 ">
                 <div class="bg-info comment-area rounded p-2 tower-box-shadow">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -26,7 +26,7 @@
                                 <b>{{ c.creator.name }}</b>
                                 <b v-if="attendees.find(a => a.accountId == c.creator.id)" class="text-secondary"><i
                                         class="mdi mdi-check ms-4"></i>
-                                    Attending this event
+                                    Attending
                                 </b>
                             </span>
                         </div>
