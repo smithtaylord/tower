@@ -28,11 +28,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4 pb-5">
+                <div class="col-12 m-auto col-md-4 pb-5">
                     <img class="img-fluid event-pic border" :src="event.coverImg" :alt="event.name"
                         :style="event.isCanceled ? { filter: 'grayscale(100%)' } : {}">
                 </div>
-                <div class="col-8">
+                <div class="col-12 col-md-8">
 
                     <div class="d-flex justify-content-between ">
                         <div>
@@ -55,7 +55,7 @@
                             </span> spots left
                         </h4>
                         <h4 v-else> <span class="text-danger fs-3">0</span> spots left</h4>
-                        <div class="px-3">
+                        <div class="px-3 py-3">
 
                             <!-- FIXME THESE BUTTONS NEED SOME IF AND OR STATMENTS -->
                             <button v-if="event.capacity <= 0" class="btn bg-danger sold-out me-5"

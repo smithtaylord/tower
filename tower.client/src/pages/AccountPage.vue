@@ -6,7 +6,7 @@
           <h3 class="text-success p-3 mt-3"> My Events</h3>
           <div class="row scroll-y">
             <!-- TODO This is where MY EVENTS WILL GO IN THE FUTURE -->
-            <div class="col-3" v-for="event in myEvents">
+            <div class="col-12 col-md-3" v-for="event in myEvents">
               <SmEventCard :event="event" />
             </div>
           </div>

@@ -1,12 +1,12 @@
 <template>
     <div class="bg-secondary my-4 tower-box-shadow">
         <div class="row align-items-center">
-            <div class="col-4">
+            <div class="col-12 col-md-4 text-center">
                 <router-link :to="{ name: 'EventDetails', params: { eventId: ticket.eventId } }">
                     <img class="img-fluid ticket-pic" :src="ticket.coverImg" alt="">
                 </router-link>
             </div>
-            <div class="col-lg-5 col-xxl-6 d-flex justify-content-between flex-column">
+            <div class="col-lg-5 col-xxl-6 d-flex justify-content-between flex-column d-none d-md-block">
                 <div class="p-3 fancy-text">
                     <h5 class="fs-4 text-body-bg text-shadow">{{ ticket.name }}</h5>
                     <h5 class="text-info text-shadow">{{ ticket.location }}</h5>
@@ -15,6 +15,17 @@
                 <div class="text-end ps-5 py-5">
                     <button @click="deleteTicket(ticket.id)"
                         class="btn bg-danger text-dark fw-bold selectable not-going">not
+                        going</button>
+                </div>
+            </div>
+            <div class="col-12 d-md-none">
+                <div class="p-3 fancy-text">
+                    <h5 class="fs-4 text-body-bg text-shadow">{{ ticket.name }}</h5>
+                    <h5 class="text-info text-shadow">{{ ticket.location }}</h5>
+                    <h5 class="text-info text-shadow">{{ ticket.date }}</h5>
+                </div>
+                <div class="text-end p-3 py-5">
+                    <button @click="deleteTicket(ticket.id)" class="btn bg-danger text-dark fw-bold selectable">not
                         going</button>
                 </div>
             </div>
