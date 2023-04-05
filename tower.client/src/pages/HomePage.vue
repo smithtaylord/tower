@@ -10,40 +10,40 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-22">
+      <div class="col-12">
         <div class="m-3 pt-2 bg-secondary rounded tower-box-shadow">
           <div class="row">
-            <div class="col-2 ">
+            <div class="col-6 col-md-2 ">
               <h4 @click="changeFilterCategory('')"
                 class="fancy-hover text-center  fancy-text fs-4 align-items-center p-3 bottom-border-hover">All</h4>
 
             </div>
-            <div class="col-2">
+            <div class="col-6 col-md-2">
               <h4 @click="changeFilterCategory('concert')"
                 class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Concert
               </h4>
 
             </div>
-            <div class="col-2">
+            <div class="col-6 col-md-2">
               <h4 @click="changeFilterCategory('convention')"
                 class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">
                 Convention
               </h4>
 
             </div>
-            <div class="col-2">
+            <div class="col-6 col-md-2">
               <h4 @click="changeFilterCategory('sport')"
                 class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Sport
               </h4>
 
             </div>
-            <div class="col-2">
+            <div class="col-6 col-md-2">
               <h4 @click="changeFilterCategory('digital')"
                 class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Digital
               </h4>
 
             </div>
-            <div class="col-2">
+            <div class="col-6 col-md-2">
               <h4 @click="changeFilterCategory('misc')"
                 class="text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover">Misc.
               </h4>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="row">
-      <div class="col-3" v-for="event in events">
+      <div class="col-12 col-md-3" v-for="event in events">
         <SmEventCard :event="event" />
       </div>
     </div>

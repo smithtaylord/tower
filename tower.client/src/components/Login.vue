@@ -12,12 +12,12 @@
     </div>
     <router-link class="" :to="{ name: 'Home' }">
       <div v-if="account.picture || user.picture" class=" text-center">
-        <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> home </button>
+        <button class="btn-width btn bg-secondary text-info mb-3 px-2 py-3 fs-5 selectable"> home </button>
       </div>
     </router-link>
     <router-link :to="{ name: 'Account' }">
       <div v-if="account.picture || user.picture" class=" text-center">
-        <button class="btn-width p-3 btn bg-secondary text-info mb-3 fs-5 selectable"> account </button>
+        <button class="btn-width btn bg-secondary text-info mb-3 px-2 py-3 fs-5 selectable"> account </button>
       </div>
     </router-link>
     <div v-if="account.picture || user.picture" class=" text-center p-1">
@@ -99,5 +99,11 @@ export default {
 .btn-width {
   width: 8vw;
   box-shadow: 1px 1px 1px #171920;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-width {
+    width: 75vw;
+  }
 }
 </style>
