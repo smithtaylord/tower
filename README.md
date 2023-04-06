@@ -3,7 +3,7 @@
 Did you know that a group of giraffes is called a tower? The Tower Project is an application designed to help people connect with their own towers of friends and fans for events like concerts, expos, and sporting events.
 
 ### Getting started
-To use the Tower Project, simply visit the-tower-project-2023.onrender.com on your desktop or mobile device. The app is hosted on a free hosting site, so it may take a moment to load.
+To use the Tower Project, simply visit https://the-tower-project-2023.onrender.com/#/ on your desktop or mobile device. The app is hosted on a free hosting site, so it may take a moment to load.
 
 ### Features
 _The Tower Project allows users to:_
